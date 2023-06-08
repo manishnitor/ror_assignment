@@ -15,7 +15,7 @@ Getting started:
 Provide sql for aggregate count of participants by year of birth.
 
 ```bash
- SELECT "participants".* FROM "participants" WHERE (strftime('%Y', date_of_birth) = '1993')
+ SELECT COUNT(*) FROM "participants" WHERE (strftime('%Y', date_of_birth) = '1993')
 ```
 
 Provide sql for aggregate count of participants by coordinator and gender.
