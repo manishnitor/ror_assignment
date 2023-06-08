@@ -1,0 +1,48 @@
+<%= form_with(model: enrollment) do |form| %>
+  <% if enrollment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
+
+      <ul>
+        <% enrollment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+      <%= form.label :participant %>
+      <%= form.select :participant_id, Participant.all.collect { |r| [ r.name, r.id ] }%>
+  </div>
+
+  <div>
+      <%= form.label :registry %>
+      <%= form.select :registry_id, Registry.where(state:'open').collect { |r| [ r.name, r.id ] }%>
+  </div>
+
+  <div>
+    <%= form.label :date_of_enrollment, style: "display: block" %>
+    <%= form.date_field :date_of_enrollment %>
+  </div>
+
+  <div>
+    <%= form.label :method_of_contact, style: "display: block" %>
+    <%= form.select :method_of_contact, Enrollment.method_of_contacts.keys %>
+  </div>
+
+  <div>
+    <%= form.label :remarks, style: "display: block" %>
+    <%= form.text_field :remarks %>
+  </div>
+
+  <div>
+      <%= form.label :coordinator %>
+      <%= form.select :coordinator_id, Coordinator.all.collect { |c| [ c.email, c.id ] } %>
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

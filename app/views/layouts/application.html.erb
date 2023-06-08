@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link <%= "active" if current_page? controller: :homes%>" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/coordinators" class="nav-link <%= "active" if current_page? controller: :coordinators%>">Coordinators</a></li>
+        <li class="nav-item"><a href="/participants" class="nav-link  <%= "active" if current_page? controller: :participants%>">Participants</a></li>
+        <li class="nav-item"><a href="/registries" class="nav-link <%= "active" if current_page? controller: :registries%>">Registries</a></li>
+        <li class="nav-item"><a href="/enrollments" class="nav-link <%= "active" if current_page? controller: :enrollments%>">Enrollments</a></li>
+         <li class="nav-item"><a href="/download_csv" class="nav-link <%= "active" if current_page? controller: :reports%>">Download CSV</a></li>
+      </ul>
+    </header>
+        <%= yield %>
+
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,32 @@
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Coordinators</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name:</th>
+      <th>Phone Number:</th>
+      <th></th>
+    </tr>
+
+
+  </thead>
+   <tbody>
+      <% @coordinators.each do |coordinator| %>
+    <tr>
+      <td><%= coordinator.email %></td>
+      <td><%= coordinator.name %></td>
+      <td><%= coordinator.phone_number %></td>
+      <td><%= link_to "view", coordinator %></td>
+    </tr>
+      <% end %>
+
+  </tbody>
+
+</table>
+
+<%= link_to "New coordinator", new_coordinator_path %>

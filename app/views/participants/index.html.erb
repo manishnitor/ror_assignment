@@ -1,0 +1,32 @@
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Participants</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender:</th>
+      <th>Date of Birth:</th>
+      <th></th>
+    </tr>
+
+
+  </thead>
+   <tbody>
+      <% @participants.each do |participant| %>
+    <tr>
+      <td><%= participant.name %></td>
+      <td><%= participant.gender %></td>
+      <td><%= participant.date_of_birth %></td>
+      <td><%= link_to "view", participant %></td>
+    </tr>
+      <% end %>
+
+  </tbody>
+
+</table>
+
+<%= link_to "New participant", new_participant_path %>

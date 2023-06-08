@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Enrollments</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Participant:</th>
+      <th>Registry:</th>
+      <th>Date of enrollment</th>
+      <th>Method of contact:</th>
+      <th>Coordinator:</th>
+      <th>Remarks:</th>
+      <th></th>
+    </tr>
+
+
+  </thead>
+   <tbody>
+      <% @enrollments.each do |enrollment| %>
+    <tr>
+      <td><%= enrollment.participant.name %></td>
+      <td><%= enrollment.registry.name %> <%= enrollment.registry.location %></td>
+      <td><%= enrollment.date_of_enrollment %></td>
+      <td><%= enrollment.method_of_contact %></td>
+      <td><%= enrollment.coordinator.email %></td>
+      <td><%= enrollment.remarks %></td>
+      <td><%= link_to "view", enrollment %></td>
+    </tr>
+      <% end %>
+
+  </tbody>
+
+</table>
+
+<%= link_to "New enrollment", new_enrollment_path %>

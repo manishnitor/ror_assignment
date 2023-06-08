@@ -1,0 +1,23 @@
+<div id="<%= dom_id coordinator %>">
+  <p>
+    <strong>Email:</strong>
+    <%= coordinator.email %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= coordinator.name %>
+  </p>
+
+  <p>
+    <strong>Phone number:</strong>
+    <%= coordinator.phone_number %>
+  </p>
+
+  <p>
+
+  <strong>Registries</strong>
+    <%= @coordinator.registries.map {|r| "#{r.name} #{r.location}" }.join(",") %>
+  </p>
+
+</div>
